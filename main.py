@@ -37,9 +37,9 @@ def main():
     print(student_worker.get_info())
     print("\n")
 
-    # Запис на курс
-    student.enroll("Математика")
-    student.enroll("Фізика")
+    # Запис на курс з додатковою інформацією
+    student.enroll("Математика", {"кредити": 3, "оцінка": "A"})
+    student.enroll("Фізика", {"кредити": 4, "оцінка": "B"})
     print(student.get_enrollments())
     print(student.get_total_courses())
     print("\n")
@@ -61,7 +61,7 @@ def main():
     print("\n")
 
     # Оновлення посади для студент-працівника
-    student_worker.enroll("Програмування")
+    student_worker.enroll("Програмування", {"кредити": 5, "оцінка": "A"})
     print(student_worker.update_position("Стажер", "Лабораторія"))
     print(student_worker.get_work_schedule())
     print(student_worker.get_total_courses())
