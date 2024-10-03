@@ -27,16 +27,17 @@ class Student(User):
             return f"Курс {course_name} видалено."
         return f"Курс {course_name} не знайдено."
 
-    def get_enrollments(self):
+    def enrollments(self):
         if not self._enrollments:
             return "Немає записів на курси."
         return "\n".join([f"{course}: {info}" for course, info in self._enrollments.items()])
 
-    def get_total_courses(self):
+    def total_courses(self):
         return f"Загальна кількість курсів: {len(self._enrollments)}"
 
-    def get_info(self):
+    @User.info.getter
+    def info(self):
         return (
-            f"{self.get_full_info()}, Інститут: {self._institute}, "
+            f"{self.full_info}, Інститут: {self._institute}, "
             f"Кафедра: {self._department}, Рік вступу: {self._year_of_admission}"
         )

@@ -7,7 +7,8 @@ class Worker(User):
         self._position = PeopleData.validate_position_or_workplace(position)
         self._workplace = PeopleData.validate_position_or_workplace(workplace)
 
-    def get_work_info(self):
+    @property
+    def work_info(self):
         return f"Посада: {self._position}, Місце роботи: {self._workplace}"
 
     def update_position(self, new_position, new_workplace):
@@ -15,5 +16,6 @@ class Worker(User):
         self._workplace = PeopleData.validate_position_or_workplace(new_workplace)
         return f"Посада оновлена на {self._position}, Місце роботи оновлено на {self._workplace}"
 
-    def get_info(self):
-        return f"{self.get_full_info()}, {self.get_work_info()}"
+    @User.info.getter
+    def info(self):
+        return f"{self.full_info}, {self.work_info}"

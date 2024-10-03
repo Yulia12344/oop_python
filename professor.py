@@ -13,11 +13,12 @@ class Professor(User):
         self._courses.append(course_name)
         return f"Курс {course_name} додано."
 
-    def get_courses(self):
+    def courses(self):
         return f"Курси, які викладає: {', '.join(self._courses)}" if self._courses else "Немає курсів для викладання."
 
-    def get_info(self):
+    @User.info.getter
+    def info(self):
         return (
-            f"{self.get_full_info()}, Титул: {self._academic_title}, Факультет: {self._faculty}, "
+            f"{self.full_info}, Титул: {self._academic_title}, Факультет: {self._faculty}, "
             f"Інститут: {self._institute}, Кафедра: {self._department}"
         )

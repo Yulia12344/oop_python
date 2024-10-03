@@ -21,10 +21,10 @@ def main():
         2021, "Асистент", "Університет", "Інститут електроніки", "Кафедра електронних систем"
     )
 
-    print(student.get_info())
-    print(professor.get_info())
-    print(worker.get_info())
-    print(student_worker.get_info())
+    print(student.info)
+    print(professor.info)
+    print(worker.info)
+    print(student_worker.info)
     print("\n")
 
     # Оновлення контактної інформації
@@ -33,38 +33,38 @@ def main():
     print("\n")
 
     # Перегляд оновленої інформації
-    print(student.get_info())
-    print(student_worker.get_info())
+    print(student.info)
+    print(student_worker.info)
     print("\n")
 
     # Запис на курс з додатковою інформацією
     student.enroll("Математика", {"кредити": 3, "оцінка": "A"})
     student.enroll("Фізика", {"кредити": 4, "оцінка": "B"})
-    print(student.get_enrollments())
-    print(student.get_total_courses())
+    print(student.enrollments())
+    print(student.total_courses())
     print("\n")
 
     # Видалення курсу
     print(student.drop_course("Математика"))
-    print(student.get_enrollments())
+    print(student.enrollments())
     print("\n")
 
     # Додавання курсів для професора
     print(professor.add_course("Література"))
     print(professor.add_course("Лінгвістика"))
-    print(professor.get_courses())
+    print(professor.courses())
     print("\n")
 
     # Оновлення посади для працівника
     print(worker.update_position("Головний інженер", "Фабрика"))
-    print(worker.get_info())
+    print(worker.info)
     print("\n")
 
     # Оновлення посади для студент-працівника
     student_worker.enroll("Програмування", {"кредити": 5, "оцінка": "A"})
     print(student_worker.update_position("Стажер", "Лабораторія"))
-    print(student_worker.get_work_schedule())
-    print(student_worker.get_total_courses())
+    print(student_worker.work_schedule())
+    print(student_worker.total_courses())
     print("\n")
 
 if __name__ == "__main__":

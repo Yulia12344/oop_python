@@ -54,10 +54,12 @@ class PeopleData:
             return value
         raise ValueError("Посада та місце роботи повинні складатися тільки з букв і пробілів.")
 
-    def get_full_name(self):
+    @property
+    def full_name(self):
         return f"{self._first_name} {self._last_name}"
 
-    def get_full_info(self):
+    @property
+    def full_info(self):
         return (
             f"ID: {self._id}, Ім'я: {self._first_name}, Прізвище: {self._last_name}, "
             f"Email: {self._email}, Телефон: {self._phone_number}, Дата народження: {self._date_of_birth}"
